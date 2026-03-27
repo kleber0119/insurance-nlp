@@ -1,0 +1,54 @@
+# ── Dataset (too large) ──────────────────────────────────────────────
+avis_traduit_final.xlsx
+*.xlsx
+*.csv
+
+# ── Auto-generated artefacts ────────────────────────────────────────────────────
+corpus_embeddings.npy          # rebuilt automatically on first Streamlit run
+
+# ── Streamlit files ──────────────────────────────────────────────
+Streamlit_App_Files/
+
+# ── Presentation ────────────────────────────────────────────
+*.pptx
+
+# ── Python ──────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# ── Jupyter ─────────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.nbconvert/
+
+# ── macOS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ── IDE ─────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Streamlit cache ─────────────────────────────────────────────────────────────
+.streamlit/
+
+# ── HuggingFace / model caches ──────────────────────────────────────────────────
+~/.cache/huggingface/
