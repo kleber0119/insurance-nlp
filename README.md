@@ -78,7 +78,7 @@ Raw French reviews
 ### 1. Clone the repo
 
 ```bash
-git clone 
+git clone https://github.com/kleber0119/insurance-nlp.git
 cd NLP_French_Project
 ```
 
