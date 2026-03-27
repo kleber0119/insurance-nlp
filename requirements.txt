@@ -9,7 +9,6 @@ joblib>=1.3
 shap>=0.44
 
 # ── Deep learning ────────────────────────────────────────────────────────────────
-tensorflow>=2.13       # BiLSTM models (.keras)
 torch>=2.0             # flan-t5 inference
 
 # ── NLP / transformers ───────────────────────────────────────────────────────────
