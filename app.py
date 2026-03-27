@@ -275,9 +275,11 @@ def load_data():
         return None  # caller will show the missing-data message
 
     df = pd.read_excel(path, engine="openpyxl")
+    total_reviews = len(df)
     df = df.dropna(subset=["note"]).copy()
     df["note"] = df["note"].astype(int)
     df["avis_cor_en"] = df["avis_cor_en"].fillna(df["avis_en"]).fillna(df["avis"]).astype(str)
+    df.attrs["total_reviews"] = total_reviews
     return df
 
 
@@ -389,7 +391,7 @@ if page == "Overview":
     st.markdown(f"""
     <div class="kpi-row">
         <div class="kpi-card">
-            <div class="kpi-value">{len(df):,}</div>
+            <div class="kpi-value">{df.attrs.get("total_reviews", len(df)):,}</div>
             <div class="kpi-label">Total Reviews</div>
         </div>
         <div class="kpi-card">
