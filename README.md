@@ -1,6 +1,8 @@
 # NLP Project 2 - By Andrea ZANIN and Antoine URSEL
 
-> End-to-end NLP pipeline for sentiment analysis, star-rating prediction, semantic search, and RAG Q&A on French insurance customer reviews.
+**Streamlit App link :** https://insurance-nlp-andreazanin.streamlit.app/
+
+> End-to-end NLP pipeline for sentiment analysis, star-rating prediction, semantic search, and RAG Q&A on French insurance reviews.
 
 ---
 
