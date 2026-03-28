@@ -52,3 +52,7 @@ ENV/
 
 # ── HuggingFace / model caches ──────────────────────────────────────────────────
 ~/.cache/huggingface/
+
+# ── Script video ──────────────────────────────────────────────────
+
+video_script.md

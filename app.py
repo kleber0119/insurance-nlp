@@ -198,7 +198,7 @@ html, body, [class*="css"] {
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-CLASSICAL_DIR = os.path.join(BASE_DIR, "Classical_Models")
+CLASSICAL_DIR = os.path.join(BASE_DIR, "models", "classical")
 
 _candidate_paths = [
     os.path.join(BASE_DIR, "avis_traduit_final.xlsx"),
@@ -218,9 +218,9 @@ def load_classical_models():
     tfidf = joblib.load(os.path.join(CLASSICAL_DIR, "tfidf_vectorizer.joblib"))
     lr_sent = joblib.load(os.path.join(CLASSICAL_DIR, "lr_sentiment_model.joblib"))
     svc_stars = joblib.load(os.path.join(CLASSICAL_DIR, "svc_stars_model.joblib"))
-    with open(os.path.join(BASE_DIR, "label_encoder.pkl"), "rb") as f:
+    with open(os.path.join(BASE_DIR, "models", "label_encoder.pkl"), "rb") as f:
         sent_enc = pickle.load(f)
-    with open(os.path.join(BASE_DIR, "categories.json")) as f:
+    with open(os.path.join(BASE_DIR, "models", "categories.json")) as f:
         categories = json.load(f)
     return tfidf, lr_sent, svc_stars, sent_enc, categories
 
@@ -311,7 +311,7 @@ def predict_sentiments(texts):
 
 @st.cache_resource
 def compute_all_embeddings():
-    cache_path = os.path.join(BASE_DIR, "corpus_embeddings.npy")
+    cache_path = os.path.join(BASE_DIR, "models", "corpus_embeddings.npy")
     if os.path.exists(cache_path):
         return np.load(cache_path)
     df = load_data()
