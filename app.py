@@ -15,7 +15,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── Modern CSS ──────────────────────────────────────────────────────────────────
+# CSS
 st.markdown("""
 <style>
 /* ── Global ── */
@@ -196,7 +196,7 @@ html, body, [class*="css"] {
 </style>
 """, unsafe_allow_html=True)
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
+# Paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CLASSICAL_DIR = os.path.join(BASE_DIR, "models", "classical")
 
@@ -206,12 +206,10 @@ _candidate_paths = [
 ]
 DATA_PATH = next((p for p in _candidate_paths if os.path.exists(p)), None)
 
-# ── Optional: set a public URL so the app auto-downloads the dataset ────────────
-# Paste a direct-download link (Google Drive, HuggingFace, etc.) here.
-# Leave as empty string "" to disable auto-download.
+# Optional: set a public URL to auto-download the dataset
 DATA_URL = "https://huggingface.co/datasets/kleber099100/avis_traduit_final.xlsx/resolve/main/avis_traduit_final.xlsx"
 
-# ── Loaders ────────────────────────────────────────────────────────────────────
+# Loaders
 
 @st.cache_resource
 def load_classical_models():
@@ -284,7 +282,7 @@ def load_data():
 
 
 def _require_data(df) -> bool:
-    """Show a friendly message and return False when the dataset is unavailable."""
+    """Return False when the dataset is unavailable."""
     if df is not None:
         return True
     st.markdown("""
@@ -351,7 +349,7 @@ SENT_PILL = {
     "neutral":  '<span class="pill pill-neutral">NEUTRAL</span>',
 }
 
-# ── Sidebar ────────────────────────────────────────────────────────────────────
+# Sidebar
 
 with st.sidebar:
     st.markdown('<span class="sidebar-brand">NLP Project #2 </span>', unsafe_allow_html=True)
@@ -370,7 +368,7 @@ with st.sidebar:
     )
     st.divider()
 
-# ── Page: Overview ─────────────────────────────────────────────────────────────
+# Page: Overview
 
 if page == "Overview":
     st.markdown("""
@@ -467,7 +465,7 @@ if page == "Overview":
     with st.expander("View full insurer table"):
         st.dataframe(avg.reset_index(drop=True), use_container_width=True)
 
-# ── Page: Insurer Deep-dive ────────────────────────────────────────────────────
+# Page: Insurer Deep-dive
 
 elif page == "Insurer Deep-dive":
     st.markdown("""
@@ -557,7 +555,7 @@ elif page == "Insurer Deep-dive":
             </div>
             """, unsafe_allow_html=True)
 
-# ── Page: Prediction & Explanation ────────────────────────────────────────────
+# Page: Prediction & Explanation
 
 elif page == "Prediction & Explanation":
     st.markdown("""
@@ -699,7 +697,7 @@ elif page == "Prediction & Explanation":
     elif not review_text.strip():
         st.markdown('<div class="tip-box">💡 Enter a review above (or click an example) and press <strong>Analyse Review</strong>.</div>', unsafe_allow_html=True)
 
-# ── Page: Review Search ────────────────────────────────────────────────────────
+# Page: Review Search
 
 elif page == "Review Search":
     st.markdown("""
@@ -801,7 +799,7 @@ elif page == "Review Search":
     else:
         st.markdown('<div class="tip-box">💡 Enter a search query above. Use Semantic for meaning-based search, BM25 for exact keywords, or Hybrid for best results.</div>', unsafe_allow_html=True)
 
-# ── Page: RAG Q&A ──────────────────────────────────────────────────────────────
+# Page: RAG Q&A
 
 elif page == "RAG Q&A":
     st.markdown("""
